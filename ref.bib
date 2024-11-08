@@ -1,3 +1,39 @@
+@inproceedings{c11,
+author = {Batty, Mark and Owens, Scott and Sarkar, Susmit and Sewell, Peter and Weber, Tjark},
+title = {Mathematizing C++ concurrency},
+year = {2011},
+isbn = {9781450304900},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/1926385.1926394},
+doi = {10.1145/1926385.1926394},
+abstract = {Shared-memory concurrency in C and C++ is pervasive in systems programming, but has long been poorly defined. This motivated an ongoing shared effort by the standards committees to specify concurrent behaviour in the next versions of both languages. They aim to provide strong guarantees for race-free programs, together with new (but subtle) relaxed-memory atomic primitives for high-performance concurrent code. However, the current draft standards, while the result of careful deliberation, are not yet clear and rigorous definitions, and harbour substantial problems in their details.In this paper we establish a mathematical (yet readable) semantics for C++ concurrency. We aim to capture the intent of the current (`Final Committee') Draft as closely as possible, but discuss changes that fix many of its problems. We prove that a proposed x86 implementation of the concurrency primitives is correct with respect to the x86-TSO model, and describe our Cppmem tool for exploring the semantics of examples, using code generated from our Isabelle/HOL definitions.Having already motivated changes to the draft standard, this work will aid discussion of any further changes, provide a correctness condition for compilers, and give a much-needed basis for analysis and verification of concurrent C and C++ programs.},
+booktitle = {Proceedings of the 38th Annual ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages},
+pages = {55–66},
+numpages = {12},
+keywords = {relaxed memory models, semantics},
+location = {Austin, Texas, USA},
+series = {POPL '11}
+}
+
+@inproceedings{rc11,
+author = {Lahav, Ori and Vafeiadis, Viktor and Kang, Jeehoon and Hur, Chung-Kil and Dreyer, Derek},
+title = {Repairing sequential consistency in C/C++11},
+year = {2017},
+isbn = {9781450349888},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3062341.3062352},
+doi = {10.1145/3062341.3062352},
+abstract = {The C/C++11 memory model defines the semantics of concurrent memory accesses in C/C++, and in particular supports racy "atomic" accesses at a range of different consistency levels, from very weak consistency ("relaxed") to strong, sequential consistency ("SC"). Unfortunately, as we observe in this paper, the semantics of SC atomic accesses in C/C++11, as well as in all proposed strengthenings of the semantics, is flawed, in that (contrary to previously published results) both suggested compilation schemes to the Power architecture are unsound. We propose a model, called RC11 (for Repaired C11), with a better semantics for SC accesses that restores the soundness of the compilation schemes to Power, maintains the DRF-SC guarantee, and provides stronger, more useful, guarantees to SC fences. In addition, we formally prove, for the first time, the correctness of the proposed stronger compilation schemes to Power that preserve load-to-store ordering and avoid "out-of-thin-air" reads.},
+booktitle = {Proceedings of the 38th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+pages = {618–632},
+numpages = {15},
+keywords = {C++11, Weak memory models, declarative semantics, sequential consistency},
+location = {Barcelona, Spain},
+series = {PLDI 2017}
+}
+
 @inproceedings{10.1145/3297858.3304043,
     author = {Lustig, Daniel and Sahasrabuddhe, Sameer and Giroux, Olivier},
     title = {A Formal Analysis of the NVIDIA PTX Memory Consistency Model},
@@ -32,4 +68,83 @@ numpages = {13},
 keywords = {GPU, memory consistency, memory ordering, synchronization},
 location = {New York, New York},
 series = {ISCA '22}
+}
+
+@InProceedings{cerberus-bmc,
+author="Lau, Stella
+and Gomes, Victor B. F.
+and Memarian, Kayvan
+and Pichon-Pharabod, Jean
+and Sewell, Peter",
+editor="Dillig, Isil
+and Tasiran, Serdar",
+title="Cerberus-BMC: A Principled Reference Semantics and Exploration Tool for Concurrent and Sequential C",
+booktitle="Computer Aided Verification",
+year="2019",
+publisher="Springer International Publishing",
+address="Cham",
+pages="387--397",
+abstract="C remains central to our infrastructure, making verification of C code an essential and much-researched topic, but the semantics of C is remarkably complex, and important aspects of it are still unsettled, leaving programmers and verification tool builders on shaky ground. This paper describes a tool, Cerberus-BMC, that for the first time provides a principled reference semantics that simultaneously supports (1) a choice of concurrency memory model (including substantial fragments of the C11, RC11, and Linux kernel memory models), (2) a modern memory object model, and (3) a well-validated thread-local semantics for a large fragment of the language. The tool should be useful for C programmers, compiler writers, verification tool builders, and members of the C/C++ standards committees.",
+isbn="978-3-030-25540-4"
+}
+
+@inproceedings{hmc,
+author = {Kokologiannakis, Michalis and Vafeiadis, Viktor},
+title = {HMC: Model Checking for Hardware Memory Models},
+year = {2020},
+isbn = {9781450371025},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3373376.3378480},
+doi = {10.1145/3373376.3378480},
+abstract = {Stateless Model Checking (SMC) is an effective technique for verifying safety properties of a concurrent program by systematically exploring all of its executions. While SMC has been extended to handle hardware memory models like x86-TSO, it does not adequately support models that allow load buffering behaviours, such as the POWER, ARMv7, ARMv8, and RISC-V models. Existing SMC tools either do not consider such behaviours in the name of efficiency, or do not scale so well due to the extra complexity induced by these behaviours.We present HMC, the first efficient SMC algorithm that can verify programs under all hardware memory models in a sound, complete, and optimal fashion. We implement HMC in a tool for C programs, and show that it outperforms the state-of-the-art tools that can handle similar memory models. We demonstrate the efficiency of HMC by verifying code currently employed in production.},
+booktitle = {Proceedings of the Twenty-Fifth International Conference on Architectural Support for Programming Languages and Operating Systems},
+pages = {1157–1171},
+numpages = {15},
+keywords = {weak memory models, model checking},
+location = {Lausanne, Switzerland},
+series = {ASPLOS '20}
+}
+
+@misc{unified,
+    author = {Tong, Haining and Gavrilenko, Natalia and Ponce de Le\'on, Hern\'an and Heljanko},
+    title = {Towards Unified Analysis of GPU Consistency},
+    howpublished = {\url{https://hernanponcedeleon.github.io/pdfs/asplos2024.pdf}},
+    note = {Last accessed: 2024-11-06}
+}
+
+@inproceedings{litmus,
+author = {Lustig, Daniel and Wright, Andrew and Papakonstantinou, Alexandros and Giroux, Olivier},
+title = {Automated Synthesis of Comprehensive Memory Model Litmus Test Suites},
+year = {2017},
+isbn = {9781450344654},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3037697.3037723},
+doi = {10.1145/3037697.3037723},
+abstract = {The memory consistency model is a fundamental part of any shared memory architecture or programming model. Modern weak memory models are notoriously difficult to define and to implement correctly. Most real-world programming languages, compilers, and (micro)architectures therefore rely heavily on black-box testing methodologies. The success of such techniques requires that the suite of litmus tests used to perform the testing be comprehensive--it should ideally stress all obscure corner cases of the model and of its implementation. Most litmus test suites today are generated from some combination of manual effort and randomization; however, the complex and subtle nature of contemporary memory models means that manual effort is both error-prone and subject to incomplete coverage.This paper presents a methodology for synthesizing comprehensive litmus test suites directly from a memory model specification. By construction, these suites contain all tests satisfying a minimality criterion: that no synchronization mechanism in the test can be weakened without causing new behaviors to become observable. We formalize this notion using the Alloy modeling language, and we apply it to a number of existing and newly-proposed memory models. Our results show not only that this synthesis technique can automatically reproduce all manually-generated tests from existing suites, but also that it discovers new tests that are not as well studied.},
+booktitle = {Proceedings of the Twenty-Second International Conference on Architectural Support for Programming Languages and Operating Systems},
+pages = {661–675},
+numpages = {15},
+keywords = {litmus tests, memory consistency models, synchronization, synthesis},
+location = {Xi'an, China},
+series = {ASPLOS '17}
+}
+
+@misc{ptx,
+author = {NVIDIA},
+howpublished = {\url{https://docs.nvidia.com/cuda/parallel-thread-execution/}},
+note = {Last accessed: 2024-11-07}
+}
+
+@misc{coq,
+title = {The Coq Proof Assistant},
+howpublished = {\url{https://coq.inria.fr}},
+note = {Last accessed: 2024-10-31}
+}
+
+@misc{alloy,
+title = {Alloy Tools},
+howpublished = {\url{https://alloytools.org/}},
+note = {Last accessed: 2024-10-31}
 }
